@@ -9,16 +9,12 @@
 <body>
     <audio id="bgMusic" src="linger.mp3" loop></audio>
     <button id="music-control" onclick="toggleMusic()" class="playing">
-    <svg viewBox="0 0 100 100" class="waveform-icon">
-        <rect class="bar bar-1" x="10" y="30" width="10" height="40" rx="5" fill="white"></rect>
-        <rect class="bar bar-2" x="30" y="15" width="10" height="70" rx="5" fill="white"></rect>
-        <rect class="bar bar-3" x="50" y="30" width="10" height="40" rx="5" fill="white"></rect>
-        <rect class="bar bar-4" x="70" y="15" width="10" height="70" rx="5" fill="white"></rect>
-        <rect class="bar bar-5" x="90" y="30" width="10" height="40" rx="5" fill="white"></rect>
-        
-        <line class="mute-line" x1="10" y1="10" x2="90" y2="90" stroke="white" stroke-width="8" stroke-linecap="round"></line>
-    </svg>
-</button>
+        <img id="music-icon" src="music-on.png">
+    </button>
+    
+    <div style="position: absolute; bottom: 5px; width: 100%; text-align: center; font-size: 6px; opacity: 0.2; color: white; pointer-events: none;">
+        Icons by Freepik & Those Icons - Flaticon
+    </div>
 
     <div class="bg-glow"></div>
     <canvas id="matrixCanvas"></canvas>
@@ -374,14 +370,16 @@
         }
         function toggleMusic() {
             const music = document.getElementById('bgMusic');
-            const btn = document.getElementById('music-control');
+            const icon = document.getElementById('music-icon');
             
             if (music.paused) {
                 music.play();
-                btn.classList.add('playing'); // Pasang class playing (icon berdenyut)
+                icon.src = "music-on.png"; // Ganti ke gambar headphones
+                icon.style.opacity = "1";
             } else {
                 music.pause();
-                btn.classList.remove('playing'); // Hapus class playing (icon diam + garis silang)
+                icon.src = "music-off.png"; // Ganti ke gambar no-headphones
+                icon.style.opacity = "0.7"; // Kasih efek agak pudar pas mute biar beda
             }
         }
     </script>
