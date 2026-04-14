@@ -96,12 +96,17 @@ body, html {
 #p4 { transform: translateZ(0px); z-index: 10; }
 
 .page-front, .page-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    transition: opacity 0.4s ease, visibility 0.4s;
     backface-visibility: hidden;
-    -webkit-backface-visibility: hidden; /* Wajib untuk Safari iPhone */
-    background: #fff;
+    -webkit-backface-visibility: hidden;
+}
+
+.text-gone {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.page-front h3, .page-front p, .final-btn {
     transition: opacity 0.3s ease;
 }
 
