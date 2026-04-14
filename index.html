@@ -229,45 +229,43 @@
     const bookRect = page.getBoundingClientRect();
     const clickX = event.clientX - bookRect.left;
     const mid = page.offsetWidth / 2;
-
-    // Ambil elemen p4 untuk kita kontrol manual visibilitasnya
+    
+    // Ambil p4 untuk kita kontrol keras
     const p4 = document.getElementById('p4');
 
     if (clickX > mid && !page.classList.contains('flipped')) {
         // --- PROSES BUKA ---
-        page.style.zIndex = "100"; 
+        page.style.zIndex = "100";
         page.classList.add('flipped');
         if (binder) binder.style.opacity = "0";
 
-        // Jika kita lagi buka p1 atau p2, pastikan p4 tetap MATI total
-        if (num < 3) {
-            p4.style.visibility = 'hidden';
-            p4.style.opacity = '0';
-        } else if (num === 3) {
-            // Jika p3 dibuka, baru p4 boleh muncul pelan-pelan
-            setTimeout(() => {
-                p4.style.visibility = 'visible';
-                p4.style.opacity = '1';
-            }, 400); // Muncul pas transisi p3 udah setengah jalan
+        // Fix iPhone XR: Jika yang dibuka p3, baru p4 "diciptakan" (display block)
+        if (num === 3) {
+            p4.style.display = 'block'; 
+            // Kasih delay dikit supaya animasinya gak kaget
+            setTimeout(() => { p4.style.opacity = '1'; }, 50);
         }
 
         setTimeout(() => {
             if(page.classList.contains('flipped')) {
-                page.style.zIndex = num; 
+                page.style.zIndex = num;
             }
-        }, 800); 
+        }, 800);
 
     } else if (clickX < mid && page.classList.contains('flipped')) {
         // --- PROSES TUTUP ---
         page.style.zIndex = "100";
         page.classList.remove('flipped');
 
-        // Jika kita menutup halaman dan kembali ke depan, sembunyikan lagi p4
-        if (num <= 3) {
+        // Fix iPhone XR: Kalau p3 ditutup, p4 langsung "dibuang" (display none)
+        // supaya gak nembus ke p2 atau p1
+        if (num === 3) {
             p4.style.opacity = '0';
-            setTimeout(() => {
-                p4.style.visibility = 'hidden';
-            }, 300);
+            setTimeout(() => { 
+                if(!page.classList.contains('flipped')) {
+                    p4.style.display = 'none'; 
+                }
+            }, 700);
         }
 
         setTimeout(() => {
@@ -279,6 +277,7 @@
     }
 }
 
+        
         function explodeHeart(event) {
             event.stopPropagation();
             const container = document.getElementById('heart-explosion-container');
