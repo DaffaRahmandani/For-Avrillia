@@ -262,85 +262,35 @@ body, html {
     }
 }
 
-/* --- MODERN MUSIC CONTROL (Waveform) --- */
 #music-control {
     position: fixed;
-    bottom: 25px; /* Sedikit lebih tinggi biar pas */
+    bottom: 25px;
     right: 25px;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.1); /* Glassmorphism pelan */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    width: 50px; /* Sedikit lebih besar agar icon SVG jelas */
-    height: 50px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px; /* Ruang untuk SVG */
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    overflow: hidden; /* Biar garis silang gak keluar */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
 }
 
-/* Hover effect */
+#music-icon {
+    width: 24px;
+    height: 24px;
+    /* Mengubah icon hitam jadi putih bersih */
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 #music-control:hover {
-    background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
-}
-
-/* Styling SVG Icon */
-.waveform-icon {
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-}
-
-/* Animasi Bar Suara (Default: Diam/Mute) */
-.bar {
-    transform-origin: center;
-    transition: transform 0.3s ease;
-}
-
-/* Garis Silang Mute (Awalnya tersembunyi) */
-.mute-line {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-/* --- STATE: PLAYING (Lagu Diputar) --- */
-/* Saat lagu jalan, class 'playing' akan dipasang lewat JS */
-#music-control.playing .mute-line {
-    opacity: 0; /* Garis silang hilang */
-}
-
-/* Animasi denyut bar suara */
-#music-control.playing .bar {
-    animation: pulse 1.2s infinite ease-in-out;
-}
-
-/* Atur delay tiap bar agar bergelombang */
-#music-control.playing .bar-1 { animation-delay: 0.0s; }
-#music-control.playing .bar-2 { animation-delay: 0.2s; }
-#music-control.playing .bar-3 { animation-delay: 0.4s; }
-#music-control.playing .bar-4 { animation-delay: 0.6s; }
-#music-control.playing .bar-5 { animation-delay: 0.8s; }
-
-/* --- STATE: MUTED (Lagu Dimatikan) --- */
-/* Saat lagu pause, class 'playing' dihilangkan */
-#music-control:not(.playing) .mute-line {
-    opacity: 1; /* Garis silang muncul merah/putih */
-}
-
-#music-control:not(.playing) .bar {
-    animation: none; /* Berhenti berdenyut */
-    transform: scaleY(0.5); /* Bar mengecil */
-}
-
-/* Keyframes untuk animasi denyut */
-@keyframes pulse {
-    0%, 100% { transform: scaleY(1); }
-    50% { transform: scaleY(0.4); }
+    background: rgba(255, 255, 255, 0.2);
 }
