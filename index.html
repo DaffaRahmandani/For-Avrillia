@@ -51,69 +51,63 @@
         <div class="book-container">
             <div class="binder-spine"></div>
             <div class="book" id="bookMain">
-                
-                <div class="page" id="p4" style="z-index: 10;">
-                    <div class="page-front">
-                        <h3 style="color: #ff1493; margin-bottom: 8px; font-size: 16px;">Our Story</h3>
-                        <p style="font-size: 11px; line-height: 1.4;">
-                            "Aku seneng bisa kenal sama kamu dek. Happy Birthday, Dek Yayas. ❤️"</p>
-                        <button class="final-btn" onclick="explodeHeart(event)">Klik Kejutan Akhir ❤️</button>
-                    </div>
-                </div>
+    
+    <div class="page" id="p4">
+        <div class="page-front">
+            <h3 style="color: #ff1493; margin-bottom: 8px; font-size: 16px;">Our Story</h3>
+            <p style="font-size: 11px; line-height: 1.4;">"Aku seneng bisa kenal sama kamu dek,aku berharap dirimu juga senang ketemu diriku. Happy Birthday, Dek Yayas. ❤️"</p>
+            <button class="final-btn" onclick="explodeHeart(event)">Klik Kejutan Akhir ❤️</button>
+        </div>
+    </div>
 
-                <div class="page" id="p3" style="z-index: 20;" onclick="handleFlip(3, event)">
-                    <div class="page-front">
-                        <h3 style="color: #ff1493; margin-bottom: 10px; font-size: 16px;">Just You</h3>
-                        <p style="font-size: 11px;">
-                            "Aku suka gimana cara kita ngobrol. Sehat-sehat terus ya dek, jangan bosen sama aku dulu,Karena Kita Setiap Hari Selalu Ketemu hehehe."
-                        </p>
-                    </div>
-                    <div class="page-back">
-                        <div class="photo-grid-special">
-                            <div class="polaroid-small"><img src="images/8.jpg"></div>
-                            <div class="polaroid-small"><img src="images/9.jpg"></div>
-                            <div class="polaroid-small"><img src="images/10.jpg"></div>
-                            <div class="polaroid-small"><img src="images/11.jpg"></div>
-                            <div class="polaroid-small"><img src="images/12.jpg"></div>
-                            <div class="polaroid-small"><img src="images/13.jpg"></div>
-                            <div class="polaroid-small"><img src="images/14.jpg"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="page" id="p2" style="z-index: 30;" onclick="handleFlip(2, event)">
-                    <div class="page-front">
-                        <h3 style="color: #ff1493; margin-bottom: 10px; font-size: 16px;">The Beginning</h3>
-                        <p style="font-size: 11px;">
-                            "Aku seneng banget bisa ketemu sama dirimu dek. Gak nyangka aku kalau bisa kenal sama dek Ayas, dirimu itu jadi bagian paling seru di hari-hariku."
-                        </p>
-                    </div>
-                    <div class="page-back">
-                        <div class="photo-grid">
-                            <div class="polaroid-small"><img src="images/2.jpg"></div>
-                            <div class="polaroid-small"><img src="images/3.jpg"></div>
-                            <div class="polaroid-small"><img src="images/4.jpg"></div>
-                            <div class="polaroid-small"><img src="images/5.jpg"></div>
-                            <div class="polaroid-small"><img src="images/6.jpg"></div>
-                            <div class="polaroid-small"><img src="images/7.jpg"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="page" id="p1" style="z-index: 40;" onclick="handleFlip(1, event)">
-                    <div class="page-front cover-front">
-                        <div style="font-size: 40px;">✉️</div>
-                        <h2>A Special Note</h2>
-                        <p style="color: #5d4037; font-weight: 700; font-size: 12px;">FOR AVRILLIA</p>
-                    </div>
-                    <div class="page-back">
-                        <div class="photo-box">
-                            <div class="polaroid"><img src="images/1.jpg"></div>
-                        </div>
-                    </div>
-                </div>
-
+    <div class="page" id="p3" onclick="handleFlip(3, event)">
+        <div class="page-front">
+            <h3 style="color: #ff1493; margin-bottom: 10px; font-size: 16px;">Just You</h3>
+            <p style="font-size: 11px;">"Aku suka gimana cara kita ngobrol. Sehat-sehat terus ya dek, jangan bosen sama aku dulu."</p>
+        </div>
+        <div class="page-back">
+            <div class="photo-grid-special">
+                <div class="polaroid-small"><img src="images/8.jpg"></div>
+                <div class="polaroid-small"><img src="images/9.jpg"></div>
+                <div class="polaroid-small"><img src="images/10.jpg"></div>
+                <div class="polaroid-small"><img src="images/11.jpg"></div>
+                <div class="polaroid-small"><img src="images/12.jpg"></div>
+                <div class="polaroid-small"><img src="images/13.jpg"></div>
+                <div class="polaroid-small"><img src="images/14.jpg"></div>
             </div>
+        </div>
+    </div>
+
+    <div class="page" id="p2" onclick="handleFlip(2, event)">
+        <div class="page-front">
+            <h3 style="color: #ff1493; margin-bottom: 10px; font-size: 16px;">The Beginning</h3>
+            <p style="font-size: 11px;">"Aku seneng banget bisa ketemu sama dirimu dek. Gak nyangka aku kalau bisa kenal sama dek Ayas."</p>
+        </div>
+        <div class="page-back">
+            <div class="photo-grid">
+                <div class="polaroid-small"><img src="images/2.jpg"></div>
+                <div class="polaroid-small"><img src="images/3.jpg"></div>
+                <div class="polaroid-small"><img src="images/4.jpg"></div>
+                <div class="polaroid-small"><img src="images/5.jpg"></div>
+                <div class="polaroid-small"><img src="images/6.jpg"></div>
+                <div class="polaroid-small"><img src="images/7.jpg"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="p1" onclick="handleFlip(1, event)">
+        <div class="page-front cover-front">
+            <div style="font-size: 40px;">✉️</div>
+            <h2>A Special Note</h2>
+            <p style="color: #5d4037; font-weight: 700; font-size: 12px;">FOR AVRILLIA</p>
+        </div>
+        <div class="page-back">
+            <div class="photo-box">
+                <div class="polaroid"><img src="images/1.jpg"></div>
+            </div>
+        </div>
+    </div>
+</div>
         </div>
     </div>
         </div>
