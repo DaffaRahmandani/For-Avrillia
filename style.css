@@ -95,7 +95,7 @@ body, html {
 #p4 { z-index: 10; }
 
 #p4 {
-    transform: translateZ(-1px); /* Taruh p4 sedikit lebih dalam secara fisik */
+    transform: translateZ(-10px) !important;
 }
 
 .page-front, .page-back {
@@ -107,6 +107,8 @@ body, html {
     border: 1px solid #ddd;
     -webkit-transform: translateZ(0);
     transform: translateZ(0); 
+    pointer-events: none;
+    overflow: hidden;
 }
 .page.flipped .page-front {
     visibility: hidden;
@@ -115,6 +117,11 @@ body, html {
 
 .page:not(.flipped) .page-front {
     visibility: visible;
+}
+
+.page:not(.flipped) .page-front,
+.page.flipped .page-back {
+    pointer-events: auto;
 }
 
 .page-front {
