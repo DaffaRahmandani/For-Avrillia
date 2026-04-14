@@ -61,9 +61,6 @@ body, html {
     display: block;
     transform: translateX(20px); 
     transition: opacity 0.5s;
-    -webkit-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
 }
 
 .binder-spine {
@@ -79,48 +76,37 @@ body, html {
     transition: opacity 0.4s ease;
 }
 
-.book { width: 100%; height: 100%; position: relative; transform-style: preserve-3d;-webkit-transform-style: preserve-3d; }
+.book { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; }
 
 .page {
     width: 100%; height: 100%;
     position: absolute; top: 0; left: 0;
     transform-origin: left center;
     transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
     transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
 }
 
-#p1 { transform: translateZ(30px); z-index: 40; }
-#p2 { transform: translateZ(20px); z-index: 30; }
-#p3 { transform: translateZ(10px); z-index: 20; }
-#p4 { transform: translateZ(0px); z-index: 10; }
+#p1 { z-index: 40; } 
+#p2 { z-index: 30; } 
+#p3 { z-index: 20; }
+#p4 { z-index: 10; }
 
 .page-front, .page-back {
-    transition: opacity 0.4s ease, visibility 0.4s;
+    position: absolute;
+    width: 100%; height: 100%;
     backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-}
-
-.text-gone {
-    opacity: 0 !important;
-    visibility: hidden !important;
-}
-
-.page-front h3, .page-front p, .final-btn {
-    transition: opacity 0.3s ease;
-}
-
-.page.flipped {
-    transform: rotateY(-180deg) translateZ(40px);
+    -webkit-backface-visibility: hidden; /* Untuk Safari iPhone */
+    background: #fff;
+    border: 1px solid #ddd;
 }
 
 .page.flipped .page-front {
     visibility: hidden;
-    opacity: 0;
+    transition: visibility 0s linear 0.4s; /* Hilang saat rotasi mencapai 90 derajat */
 }
 
 .page:not(.flipped) .page-front {
-    opacity: 1;
     visibility: visible;
 }
 
