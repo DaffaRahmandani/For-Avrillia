@@ -56,7 +56,7 @@
                     <div class="page-front">
                         <h3 style="color: #ff1493; margin-bottom: 8px; font-size: 16px;">Our Story</h3>
                         <p style="font-size: 11px; line-height: 1.4;">"Aku seneng bisa kenal sama kamu dek,aku berharap dirimu juga senang ketemu diriku. Happy Birthday, Dek Yayas. ❤️"</p>
-                        <button class="final-btn" onclick="explodeHeart(event)">Klik Kejutan Akhir ❤️</button>
+                        <button class="final-btn" onclick="explodeHeart(event)">Tap Kejutan Akhir ❤️</button>
                     </div>
                 </div>
 
@@ -223,21 +223,34 @@
             }
         }
 
-       function handleFlip(num, event) {
+        function handleFlip(num, event) {
     const page = document.getElementById('p' + num);
     const binder = document.querySelector('.binder-spine');
     const bookRect = page.getBoundingClientRect();
     const clickX = event.clientX - bookRect.left;
     const mid = page.offsetWidth / 2;
 
+    // Ambil elemen p4 untuk kita kontrol manual visibilitasnya
+    const p4 = document.getElementById('p4');
+
     if (clickX > mid && !page.classList.contains('flipped')) {
         // --- PROSES BUKA ---
-        // Set z-index tinggi agar halaman yang bergerak berada di paling depan (tidak tembus ke p4)
         page.style.zIndex = "100"; 
         page.classList.add('flipped');
         if (binder) binder.style.opacity = "0";
 
-        // Setelah animasi selesai (800ms), turunkan z-index ke normal
+        // Jika kita lagi buka p1 atau p2, pastikan p4 tetap MATI total
+        if (num < 3) {
+            p4.style.visibility = 'hidden';
+            p4.style.opacity = '0';
+        } else if (num === 3) {
+            // Jika p3 dibuka, baru p4 boleh muncul pelan-pelan
+            setTimeout(() => {
+                p4.style.visibility = 'visible';
+                p4.style.opacity = '1';
+            }, 400); // Muncul pas transisi p3 udah setengah jalan
+        }
+
         setTimeout(() => {
             if(page.classList.contains('flipped')) {
                 page.style.zIndex = num; 
@@ -246,15 +259,20 @@
 
     } else if (clickX < mid && page.classList.contains('flipped')) {
         // --- PROSES TUTUP ---
-        // Saat menutup, naikkan lagi z-index agar menutupi halaman di bawahnya
         page.style.zIndex = "100";
         page.classList.remove('flipped');
 
+        // Jika kita menutup halaman dan kembali ke depan, sembunyikan lagi p4
+        if (num <= 3) {
+            p4.style.opacity = '0';
+            setTimeout(() => {
+                p4.style.visibility = 'hidden';
+            }, 300);
+        }
+
         setTimeout(() => {
-            // Kembalikan z-index asli berdasarkan urutan (p1=40, p2=30, p3=20, p4=10)
             const originalZ = (5 - num) * 10;
             page.style.zIndex = originalZ;
-
             const anyFlipped = document.querySelectorAll('.page.flipped').length;
             if (anyFlipped === 0 && binder) binder.style.opacity = "1";
         }, 800);
