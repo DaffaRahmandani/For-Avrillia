@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <audio id="bgMusic" src="linger.mp3" loop></audio>
+    <button id="music-control" onclick="toggleMusic()">🔊</button>
 
     <div class="bg-glow"></div>
     <canvas id="matrixCanvas"></canvas>
@@ -347,6 +349,30 @@
                 container.style.pointerEvents = 'none'; // Matikan klik agar bisa interaksi sama buku lagi
                 document.querySelector('.book-container').style.opacity = '1'; // Terangkan buku kembali
             }, 500);
+        }
+
+        function startTransition() {
+            // LOGIKA MUSIK: Mulai putar saat tombol Heart diklik
+            const song = document.getElementById('bgMusic');
+            song.play().catch(e => console.log("Menunggu interaksi user untuk musik"));
+
+            document.getElementById('matrixCanvas').style.display = 'none';
+            document.getElementById('text-container').style.display = 'none';
+            document.getElementById('surprise-section').style.display = 'none';
+            document.getElementById('cat-transition').style.display = 'flex';
+            setTimeout(goToStorybook, 3000);
+        }
+        function toggleMusic() {
+            const music = document.getElementById('bgMusic');
+            const btn = document.getElementById('music-control');
+            
+            if (music.paused) {
+                music.play();
+                btn.innerHTML = "🔊";
+            } else {
+                music.pause();
+                btn.innerHTML = "🔇";
+            }
         }
     </script>
 </body>
