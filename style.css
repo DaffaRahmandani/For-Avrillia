@@ -61,6 +61,9 @@ body, html {
     display: block;
     transform: translateX(20px); 
     transition: opacity 0.5s;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
 }
 
 .binder-spine {
@@ -94,19 +97,21 @@ body, html {
 
 .page-front, .page-back {
     position: absolute;
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     backface-visibility: hidden;
-    -webkit-backface-visibility: hidden; /* Untuk Safari iPhone */
+    -webkit-backface-visibility: hidden; /* Wajib untuk Safari iPhone */
     background: #fff;
-    border: 1px solid #ddd;
+    transition: opacity 0.3s ease;
 }
 
 .page.flipped .page-front {
+    opacity: 0;
     visibility: hidden;
-    transition: visibility 0s linear 0.4s; /* Hilang saat rotasi mencapai 90 derajat */
 }
 
 .page:not(.flipped) .page-front {
+    opacity: 1;
     visibility: visible;
 }
 
