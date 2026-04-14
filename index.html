@@ -51,63 +51,68 @@
         <div class="book-container">
             <div class="binder-spine"></div>
             <div class="book" id="bookMain">
-    
-    <div class="page" id="p4">
-        <div class="page-front">
-            <h3 style="color: #ff1493; margin-bottom: 8px; font-size: 16px;">Our Story</h3>
-            <p style="font-size: 11px; line-height: 1.4;">"Aku seneng bisa kenal sama kamu dek,aku berharap dirimu juga senang ketemu diriku. Happy Birthday, Dek Yayas. ❤️"</p>
-            <button class="final-btn" onclick="explodeHeart(event)">Klik Kejutan Akhir ❤️</button>
-        </div>
-    </div>
+                
+                <div class="page" id="p4">
+                    <div class="page-front">
+                        <h3 style="color: #ff1493; margin-bottom: 8px; font-size: 16px;">Our Story</h3>
+                        <p style="font-size: 11px; line-height: 1.4;">"Aku seneng bisa kenal sama kamu dek,aku berharap dirimu juga senang ketemu diriku. Happy Birthday, Dek Yayas. ❤️"</p>
+                        <button class="final-btn" onclick="explodeHeart(event)">Klik Kejutan Akhir ❤️</button>
+                    </div>
+                </div>
 
-    <div class="page" id="p3" onclick="handleFlip(3, event)">
-        <div class="page-front">
-            <h3 style="color: #ff1493; margin-bottom: 10px; font-size: 16px;">Just You</h3>
-            <p style="font-size: 11px;">"Aku suka gimana cara kita ngobrol. Sehat-sehat terus ya dek, jangan bosen sama aku dulu."</p>
-        </div>
-        <div class="page-back">
-            <div class="photo-grid-special">
-                <div class="polaroid-small"><img src="images/8.jpg"></div>
-                <div class="polaroid-small"><img src="images/9.jpg"></div>
-                <div class="polaroid-small"><img src="images/10.jpg"></div>
-                <div class="polaroid-small"><img src="images/11.jpg"></div>
-                <div class="polaroid-small"><img src="images/12.jpg"></div>
-                <div class="polaroid-small"><img src="images/13.jpg"></div>
-                <div class="polaroid-small"><img src="images/14.jpg"></div>
-            </div>
-        </div>
-    </div>
+                <div class="page" id="p3" style="z-index: 20;" onclick="handleFlip(3, event)">
+                    <div class="page-front">
+                        <h3 style="color: #ff1493; margin-bottom: 10px; font-size: 16px;">Just You</h3>
+                        <p style="font-size: 11px;">
+                            "Aku suka gimana cara kita ngobrol. Sehat-sehat terus ya dek, jangan bosen sama aku dulu,Karena Kita Setiap Hari Selalu Ketemu hehehe."
+                        </p>
+                    </div>
+                    <div class="page-back">
+                        <div class="photo-grid-special">
+                            <div class="polaroid-small"><img src="images/8.jpg"></div>
+                            <div class="polaroid-small"><img src="images/9.jpg"></div>
+                            <div class="polaroid-small"><img src="images/10.jpg"></div>
+                            <div class="polaroid-small"><img src="images/11.jpg"></div>
+                            <div class="polaroid-small"><img src="images/12.jpg"></div>
+                            <div class="polaroid-small"><img src="images/13.jpg"></div>
+                            <div class="polaroid-small"><img src="images/14.jpg"></div>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="page" id="p2" onclick="handleFlip(2, event)">
-        <div class="page-front">
-            <h3 style="color: #ff1493; margin-bottom: 10px; font-size: 16px;">The Beginning</h3>
-            <p style="font-size: 11px;">"Aku seneng banget bisa ketemu sama dirimu dek. Gak nyangka aku kalau bisa kenal sama dek Ayas."</p>
-        </div>
-        <div class="page-back">
-            <div class="photo-grid">
-                <div class="polaroid-small"><img src="images/2.jpg"></div>
-                <div class="polaroid-small"><img src="images/3.jpg"></div>
-                <div class="polaroid-small"><img src="images/4.jpg"></div>
-                <div class="polaroid-small"><img src="images/5.jpg"></div>
-                <div class="polaroid-small"><img src="images/6.jpg"></div>
-                <div class="polaroid-small"><img src="images/7.jpg"></div>
-            </div>
-        </div>
-    </div>
+                <div class="page" id="p2" style="z-index: 30;" onclick="handleFlip(2, event)">
+                    <div class="page-front">
+                        <h3 style="color: #ff1493; margin-bottom: 10px; font-size: 16px;">The Beginning</h3>
+                        <p style="font-size: 11px;">
+                            "Aku seneng banget bisa ketemu sama dirimu dek. Gak nyangka aku kalau bisa kenal sama dek Ayas, dirimu itu jadi bagian paling seru di hari-hariku."
+                        </p>
+                    </div>
+                    <div class="page-back">
+                        <div class="photo-grid">
+                            <div class="polaroid-small"><img src="images/2.jpg"></div>
+                            <div class="polaroid-small"><img src="images/3.jpg"></div>
+                            <div class="polaroid-small"><img src="images/4.jpg"></div>
+                            <div class="polaroid-small"><img src="images/5.jpg"></div>
+                            <div class="polaroid-small"><img src="images/6.jpg"></div>
+                            <div class="polaroid-small"><img src="images/7.jpg"></div>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="page" id="p1" onclick="handleFlip(1, event)">
-        <div class="page-front cover-front">
-            <div style="font-size: 40px;">✉️</div>
-            <h2>A Special Note</h2>
-            <p style="color: #5d4037; font-weight: 700; font-size: 12px;">FOR AVRILLIA</p>
-        </div>
-        <div class="page-back">
-            <div class="photo-box">
-                <div class="polaroid"><img src="images/1.jpg"></div>
+                <div class="page" id="p1" style="z-index: 40;" onclick="handleFlip(1, event)">
+                    <div class="page-front cover-front">
+                        <div style="font-size: 40px;">✉️</div>
+                        <h2>A Special Note</h2>
+                        <p style="color: #5d4037; font-weight: 700; font-size: 12px;">FOR AVRILLIA</p>
+                    </div>
+                    <div class="page-back">
+                        <div class="photo-box">
+                            <div class="polaroid"><img src="images/1.jpg"></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </div>
-    </div>
-</div>
         </div>
     </div>
         </div>
@@ -219,58 +224,40 @@
         }
 
         function handleFlip(num, event) {
-    const page = document.getElementById('p' + num);
-    const binder = document.querySelector('.binder-spine');
-    const bookRect = page.getBoundingClientRect();
-    const clickX = event.clientX - bookRect.left;
-    const mid = page.offsetWidth / 2;
+            const page = document.getElementById('p' + num);
+            const binder = document.querySelector('.binder-spine');
+            const bookRect = page.getBoundingClientRect();
+            const clickX = event.clientX - bookRect.left;
+            const mid = page.offsetWidth / 2;
 
-    if (clickX > mid && !page.classList.contains('flipped')) {
-        // --- PROSES BUKA ---
-        // 1. Sembunyikan teks halaman yang sedang dibuka agar tidak glitch
-        page.querySelector('.page-front').classList.add('text-gone');
-        
-        // 2. Cari halaman di BAWAHNYA (next page) dan sembunyikan dulu teksnya
-        const nextPage = document.getElementById('p' + (num - 1));
-        if (nextPage) {
-            nextPage.querySelector('.page-front').classList.add('text-gone');
-        }
+            if (clickX > mid && !page.classList.contains('flipped')) {
+                // --- PROSES BUKA ---
+                page.style.zIndex = "50"; // Pastikan saat bergerak dia di paling atas
+                page.classList.add('flipped');
+                if (binder) binder.style.opacity = "0";
 
-        page.classList.add('flipped');
-        if (binder) binder.style.opacity = "0";
+                // Setelah 300ms (setengah animasi), pindahkan ke bawah agar teks slide berikutnya bersih
+                setTimeout(() => {
+                    if(page.classList.contains('flipped')) {
+                        page.style.zIndex = num; 
+                    }
+                }, 300); 
 
-        // 3. Munculkan teks halaman baru setelah animasi lipat hampir selesai
-        setTimeout(() => {
-            page.style.zIndex = num;
-            if (nextPage) {
-                nextPage.querySelector('.page-front').classList.remove('text-gone');
+            } else if (clickX < mid && page.classList.contains('flipped')) {
+                // --- PROSES TUTUP ---
+                // Saat mau nutup, z-index harus LANGSUNG tinggi supaya menutupi teks di bawahnya
+                if (num === 1) page.style.zIndex = "40";
+                else if (num === 2) page.style.zIndex = "30";
+                else if (num === 3) page.style.zIndex = "20";
+                
+                page.classList.remove('flipped');
+
+                setTimeout(() => {
+                    const anyFlipped = document.querySelectorAll('.page.flipped').length;
+                    if (anyFlipped === 0 && binder) binder.style.opacity = "1";
+                }, 500);
             }
-        }, 600); 
-
-    } else if (clickX < mid && page.classList.contains('flipped')) {
-        // --- PROSES TUTUP ---
-        const nextPage = document.getElementById('p' + (num - 1));
-        
-        // Sembunyikan teks halaman saat ini sebelum ditutup
-        if (nextPage) {
-            nextPage.querySelector('.page-front').classList.add('text-gone');
         }
-
-        page.classList.remove('flipped');
-        
-        if (num === 1) page.style.zIndex = "40";
-        else if (num === 2) page.style.zIndex = "30";
-        else if (num === 3) page.style.zIndex = "20";
-
-        // Munculkan kembali teks halaman ini setelah tertutup
-        setTimeout(() => {
-            page.querySelector('.page-front').classList.remove('text-gone');
-            
-            const anyFlipped = document.querySelectorAll('.page.flipped').length;
-            if (anyFlipped === 0 && binder) binder.style.opacity = "1";
-        }, 600);
-    }
-}
 
         function explodeHeart(event) {
             event.stopPropagation();
