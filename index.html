@@ -224,40 +224,43 @@
         }
 
         function handleFlip(num, event) {
-            const page = document.getElementById('p' + num);
-            const binder = document.querySelector('.binder-spine');
-            const bookRect = page.getBoundingClientRect();
-            const clickX = event.clientX - bookRect.left;
-            const mid = page.offsetWidth / 2;
+    const page = document.getElementById('p' + num);
+    const binder = document.querySelector('.binder-spine');
+    const bookRect = page.getBoundingClientRect();
+    const clickX = event.clientX - bookRect.left;
+    const mid = page.offsetWidth / 2;
 
-            if (clickX > mid && !page.classList.contains('flipped')) {
-                // --- PROSES BUKA ---
-                page.style.zIndex = "50"; // Pastikan saat bergerak dia di paling atas
-                page.classList.add('flipped');
-                if (binder) binder.style.opacity = "0";
+    if (clickX > mid && !page.classList.contains('flipped')) {
+        // --- PROSES BUKA ---
+        // Naikkan z-index secara instan agar tidak tertutup halaman di bawahnya saat melayang
+        page.style.zIndex = "100"; 
+        page.classList.add('flipped');
+        
+        if (binder) binder.style.opacity = "0";
 
-                // Setelah 300ms (setengah animasi), pindahkan ke bawah agar teks slide berikutnya bersih
-                setTimeout(() => {
-                    if(page.classList.contains('flipped')) {
-                        page.style.zIndex = num; 
-                    }
-                }, 300); 
-
-            } else if (clickX < mid && page.classList.contains('flipped')) {
-                // --- PROSES TUTUP ---
-                // Saat mau nutup, z-index harus LANGSUNG tinggi supaya menutupi teks di bawahnya
-                if (num === 1) page.style.zIndex = "40";
-                else if (num === 2) page.style.zIndex = "30";
-                else if (num === 3) page.style.zIndex = "20";
-                
-                page.classList.remove('flipped');
-
-                setTimeout(() => {
-                    const anyFlipped = document.querySelectorAll('.page.flipped').length;
-                    if (anyFlipped === 0 && binder) binder.style.opacity = "1";
-                }, 500);
+        // Setelah selesai animasi (800ms), turunkan z-index ke normal agar halaman selanjutnya bisa di-klik
+        setTimeout(() => {
+            if(page.classList.contains('flipped')) {
+                page.style.zIndex = num; 
             }
-        }
+        }, 800); 
+
+    } else if (clickX < mid && page.classList.contains('flipped')) {
+        // --- PROSES TUTUP ---
+        // Saat menutup, naikkan lagi z-index agar menutupi halaman belakangnya
+        page.style.zIndex = "100";
+        page.classList.remove('flipped');
+
+        setTimeout(() => {
+            // Kembalikan z-index asli berdasarkan urutan p1=40, p2=30, dst
+            const originalZ = (5 - num) * 10; 
+            page.style.zIndex = originalZ;
+
+            const anyFlipped = document.querySelectorAll('.page.flipped').length;
+            if (anyFlipped === 0 && binder) binder.style.opacity = "1";
+        }, 800);
+    }
+}
 
         function explodeHeart(event) {
             event.stopPropagation();
