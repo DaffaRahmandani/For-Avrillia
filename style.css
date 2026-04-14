@@ -81,22 +81,33 @@ body, html {
 .page {
     width: 100%; height: 100%;
     position: absolute; top: 0; left: 0;
-    transform-origin: left;
+    transform-origin: left center;
     transform-style: preserve-3d;
     transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
 }
 
-#p1 { z-index: 40; } /* Sampul (Paling Atas) */
+#p1 { z-index: 40; } 
 #p2 { z-index: 30; } 
 #p3 { z-index: 20; }
 #p4 { z-index: 10; }
 
 .page-front, .page-back {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden; /* SANGAT PENTING agar sisi belakang tidak tembus */
-    -webkit-backface-visibility: hidden;
+    width: 100%; height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Untuk Safari iPhone */
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.page.flipped .page-front {
+    visibility: hidden;
+    transition: visibility 0s linear 0.4s; /* Hilang saat rotasi mencapai 90 derajat */
+}
+
+.page:not(.flipped) .page-front {
+    visibility: visible;
 }
 
 .page-front {
