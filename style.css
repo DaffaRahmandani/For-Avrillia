@@ -85,7 +85,8 @@ body, html {
     transform-style: preserve-3d;
     transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
     cursor: pointer;
-    will-change: transform; 
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 
 #p1 { z-index: 40; } 
@@ -96,37 +97,36 @@ body, html {
 .page-front, .page-back {
     position: absolute;
     width: 100%; height: 100%;
-    -webkit-backface-visibility: hidden; 
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     background: #fff;
     border: 1px solid #ddd;
     -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+    transform: translateZ(0); 
 }
-
 .page.flipped .page-front {
-    pointer-events: none;
     visibility: hidden;
-    transition: visibility 0s linear 0.4s;
+    transition: visibility 0s linear 0.4s; /* Hilang saat rotasi mencapai 90 derajat */
 }
 
-.page:not(.flipped) .page-back {
-    pointer-events: none;
-    visibility: hidden;
-    transition: visibility 0s linear 0.4s;
+.page:not(.flipped) .page-front {
+    visibility: visible;
 }
 
 .page-front {
-    z-index: 2; /* Pastikan front selalu di atas back saat belum flip */
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; background: #fff;
     padding: 20px; border-radius: 0 10px 10px 0;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
-    color: #333; text-align: center;
+    border: 1px solid #ddd; color: #333; text-align: center;
 }
 
 .page-back {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; transform: rotateY(-180deg);
+    background: #fff; padding: 10px; border-radius: 10px 0 0 10px;
+    border: 1px solid #ddd;
     transform: rotateY(-180deg);
-    z-index: 1;
-    padding: 10px; border-radius: 10px 0 0 10px;
 }
 
 .cover-front { background: #fdfaf0; }
